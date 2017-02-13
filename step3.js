@@ -1,4 +1,4 @@
-function getHTML(options, callback) {
+function getAndPrintHTMLChunks (options) {
 
   var https = require('https');
   var buffer = "";
@@ -22,24 +22,20 @@ function getHTML(options, callback) {
 
     response.on('end', function() {
       console.log('Response stream complete.');
-      callback (buffer) ;
+      console.log(buffer);
     });
 
   });
 
 };
 
-function printHTML (html) {
-  console.log(html);
-}
-
 var options = {
 
     host: 'sytantris.github.io',
-    path: '/http-examples/step1.html'
-};
+    path: '/http-examples/step3.html'
+    };
 
-getHTML(options, printHTML );
+getAndPrintHTMLChunks (options)
 
 
 
